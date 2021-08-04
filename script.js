@@ -5,6 +5,8 @@ const backgroundColorPicker = document.querySelector('.backgroundColorPicker')
 const slider = document.getElementById('myRange')
 const colorModeButton = document.querySelector('.colorMode')
 const rainbowModeButton = document.querySelector('.rainbowMode')
+const lightenModeButton = document.querySelector('.lightenMode')
+const darkenModeButton = document.querySelector('.darkenMode')
 const eraserButton = document.querySelector('.eraser')
 const clearButton = document.querySelector('.clear')
 
@@ -31,12 +33,19 @@ const generateGrid = (gridSize=64) => {
 
 const changeDivColor = (event) => {
     const elem = event.target
+    console.log(elem)
 
     if (mode == 'color') {
         penColor = penColorPicker.value
         elem.style.backgroundColor = penColor
     } else if (mode == 'rainbow') {
         penColor = "#" + Math.floor(Math.random()*16777215).toString(16)
+        elem.style.backgroundColor = penColor
+    } else if (mode == 'lighten') {
+        penColor = pSBC(0.2, elem.style.backgroundColor)
+        elem.style.backgroundColor = penColor
+    } else if (mode == 'darken') {
+        penColor = pSBC(-0.2, elem.style.backgroundColor)
         elem.style.backgroundColor = penColor
     } else if (mode == 'eraser') {
         penColor = backgroundColor
@@ -67,16 +76,7 @@ const changeBackgroundColorValue = (event) => {
         if (cell.style.backgroundColor == '') {
             cell.style.backgroundColor = backgroundColor
         } else {
-            let rgb = cell.style.backgroundColor
-        
-            rgb = rgb.substring(4, rgb.length-1)
-            .replace(/ /g, '')
-            .split(',');
-
-            let r = Number(rgb[0])
-            let g = Number(rgb[1])
-            let b = Number(rgb[2])
-            let cellBackgroundColor = rgbToHex(r, g, b)
+            let cellBackgroundColor = getCellBackgroundColor(cell)
 
             console.log(cellBackgroundColor)
             if (cellBackgroundColor == previousBackgroundColor) {
@@ -106,6 +106,21 @@ const resetGrid = (event) => {
     generateGrid(slider.value)
 }
 
+const getCellBackgroundColor = (cell) => {
+    let rgb = cell.style.backgroundColor
+
+    rgb = rgb.substring(4, rgb.length-1)
+            .replace(/ /g, '')
+            .split(',');
+
+    let r = Number(rgb[0])
+    let g = Number(rgb[1])
+    let b = Number(rgb[2])
+    let cellBackgroundColor = rgbToHex(r, g, b)
+
+    return cellBackgroundColor
+}
+
 slider.addEventListener('input', updateSliderValue)
 slider.addEventListener('mouseup', submitNewSliderValue)
 penColorPicker.addEventListener('input', changePenColorValue)
@@ -113,6 +128,8 @@ penColorPicker.addEventListener('input', changePenColorValue)
 backgroundColorPicker.addEventListener('input', changeBackgroundColorValue)
 colorModeButton.addEventListener('click', changeMode)
 rainbowModeButton.addEventListener('click', changeMode)
+lightenModeButton.addEventListener('click', changeMode)
+darkenModeButton.addEventListener('click', changeMode)
 eraserButton.addEventListener('click', changeMode)
 clearButton.addEventListener('click', resetGrid)
 
