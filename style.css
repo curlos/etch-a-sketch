@@ -1,7 +1,7 @@
 .container {
     background: black;
     display: inline-block;
-    border: 5px solid black;
+    border: 1px solid gray;
     height: 500px;
     width: 500px;
   }
@@ -10,7 +10,6 @@
     height: 500px;
     grid-template-columns: repeat(64, 1fr);
     grid-template-rows: repeat(64, 1fr);
-    grid-gap: 1px;
   }
   .cell {
      /* center the cell content */
@@ -20,5 +19,5 @@
     font-family: Arial;
     font-size: 3rem;
     font-weight: bold;
-    background: white;
+    background: #fff;
   }
