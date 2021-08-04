@@ -9,22 +9,27 @@
 </head>
 <body>
     <h1>Etch-A-Sketch</h1>
-    <div class="container">
-        <div class="grid">
+    
+    <div class="main-page">
+        <div class="options">
+            <input type="color" class="penColorPicker"></br>
+            <input type="color" class="backgroundColorPicker"></br>
+            <button class="colorMode" value="color">Color mode</button></br>
+            <button class="rainbowMode" value="rainbow">Rainbow color mode</button></br>
+            <button class="lightenMode" value="lighten">Lighten color mode</button></br>
+            <button class="darkenMode" value="darken">Shade color mode</button></br>
+            <button class="eraser" value="eraser">Eraser</button></br>
+            <button class="clear" value="clear">Clear</button></br>
+
+            <div class="slidecontainer">
+                <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
+            </div>
+        </div>
+        <div class="container">
+            <div class="grid">
+            </div>
         </div>
     </div>
-    <input type="color" class="penColorPicker">
-    <input type="color" class="backgroundColorPicker">
-    <button class="colorMode" value="color">Color mode</button>
-    <button class="rainbowMode" value="rainbow">Rainbow color mode</button>
-    <button class="lightenMode" value="lighten">Lighten color mode</button>
-    <button class="darkenMode" value="darken">Shade color mode</button>
-    <button class="eraser" value="eraser">Eraser</button>
-    <button class="clear" value="clear">Clear</button>
-
-    <div class="slidecontainer">
-        <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
-      </div>
 </body>
 
 <script src="script.js"></script>

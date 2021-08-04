@@ -1,7 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body {
+  font-size: 20px;
+  font-family: Lobster, sans-serif;
+  text-align: center;
+}
+
+.main-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
     background: black;
     display: inline-block;
-    border: 1px solid gray;
+    border: 100px solid #F44335;
+    border-radius: 40px;
+    box-shadow: 5px 10px 10px #888888;
     height: 500px;
     width: 500px;
   }
@@ -20,4 +36,31 @@
     font-size: 3rem;
     font-weight: bold;
     background-color: #ffffff;
+  }
+
+  .options > input {
+    padding: 20px;
+    width: 200px;
+  }
+
+  .options > button {
+    padding: 20px;
+    width: 240px;
+  }
+
+  .options > input, .options > button {
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #F44335;
+  }
+
+  .options > input:hover, .options > button:hover {
+    transform: scaleX(10px);
+    background-color: #c2342a;
+  }
+
+  button:active {
+    transform: translate(0px, 5px);
   }

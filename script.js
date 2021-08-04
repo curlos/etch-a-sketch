@@ -26,6 +26,7 @@ const generateGrid = (gridSize=64) => {
     for (let i = 0; i < gridSize ** 2; i++) {
         let cell = document.createElement('div')
         cell.classList.add('cell')
+        cell.style.backgroundColor = '#ffffff'
         cell.addEventListener("mouseover", changeDivColor)
         grid.appendChild(cell)
     }
@@ -33,7 +34,6 @@ const generateGrid = (gridSize=64) => {
 
 const changeDivColor = (event) => {
     const elem = event.target
-    console.log(elem)
 
     if (mode == 'color') {
         penColor = penColorPicker.value
@@ -60,12 +60,10 @@ const clearGrid = () => {
 }
 
 const changePenColorValue = (event) => {
-    console.log(event.target.value)
     penColor = event.target.value
 }
 
 const changeBackgroundColorValue = (event) => {
-    console.log(event.target.value)
     backgroundColor = event.target.value
 
     let cells = document.getElementsByClassName('cell')
@@ -78,7 +76,6 @@ const changeBackgroundColorValue = (event) => {
         } else {
             let cellBackgroundColor = getCellBackgroundColor(cell)
 
-            console.log(cellBackgroundColor)
             if (cellBackgroundColor == previousBackgroundColor) {
                 cell.style.backgroundColor = backgroundColor
             }
@@ -93,7 +90,6 @@ const updateSliderValue = (event) => {
 }
 
 const submitNewSliderValue = () => {
-    console.log('called')
     generateGrid(slider.value)
 }
 
