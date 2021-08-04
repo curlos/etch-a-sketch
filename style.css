@@ -2,12 +2,15 @@
     background: black;
     display: inline-block;
     border: 5px solid black;
+    height: 500px;
+    width: 500px;
   }
   .grid {
     display: grid;
-    grid-template-columns: repeat(6, 80px);
-    grid-template-rows: repeat(6, 80px);
-    grid-gap: 5px;
+    height: 500px;
+    grid-template-columns: repeat(64, 1fr);
+    grid-template-rows: repeat(64, 1fr);
+    grid-gap: 1px;
   }
   .cell {
      /* center the cell content */
