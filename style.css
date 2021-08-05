@@ -20,47 +20,84 @@ body {
     box-shadow: 5px 10px 10px #888888;
     height: 500px;
     width: 500px;
-  }
-  .grid {
-    display: grid;
-    height: 500px;
-    grid-template-columns: repeat(64, 1fr);
-    grid-template-rows: repeat(64, 1fr);
-  }
-  .cell {
-     /* center the cell content */
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    font-family: Arial;
-    font-size: 3rem;
-    font-weight: bold;
-    background-color: #ffffff;
-  }
+}
+.grid {
+  display: grid;
+  height: 500px;
+  grid-template-columns: repeat(64, 1fr);
+  grid-template-rows: repeat(64, 1fr);
+  border: 5px solid black;
+}
+.cell {
+    /* center the cell content */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-family: Arial;
+  font-size: 3rem;
+  font-weight: bold;
+  background-color: #ffffff;
+}
 
-  .options > input {
-    padding: 20px;
-    width: 200px;
-  }
+.options > input {
+  padding: 20px;
+  width: 200px;
+}
 
-  .options > button {
-    padding: 20px;
-    width: 240px;
-  }
+.options > button {
+  padding: 20px;
+  width: 240px;
+}
 
-  .options > input, .options > button {
-    margin: 10px;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    background-color: #F44335;
-  }
+.options > input, .options > button {
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: #F44335;
+}
 
-  .options > input:hover, .options > button:hover {
-    transform: scaleX(10px);
-    background-color: #c2342a;
-  }
+.options > input:hover, .options > button:hover {
+  transform: scaleX(10px);
+  background-color: #c2342a;
+}
 
-  button:active {
-    transform: translate(0px, 5px);
-  }
+button:active {
+  transform: translate(0px, 5px);
+}
+
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 90%; /* Full-width */
+  height: 15px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  border-radius: 10px;
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+  /* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  border-radius: 50%;
+  background: #F44335; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  background: #F44335; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}

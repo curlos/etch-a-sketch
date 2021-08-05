@@ -3,6 +3,7 @@ const grid = document.querySelector('.grid')
 const penColorPicker = document.querySelector('.penColorPicker')
 const backgroundColorPicker = document.querySelector('.backgroundColorPicker')
 const slider = document.getElementById('myRange')
+const sliderOutput = document.querySelector('.sliderOutput')
 const colorModeButton = document.querySelector('.colorMode')
 const rainbowModeButton = document.querySelector('.rainbowMode')
 const lightenModeButton = document.querySelector('.lightenMode')
@@ -86,7 +87,7 @@ const changeBackgroundColorValue = (event) => {
 }
 
 const updateSliderValue = (event) => {
-    console.log(event.target.value)
+    sliderOutput.innerHTML = event.target.value
 }
 
 const submitNewSliderValue = () => {
